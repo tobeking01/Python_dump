@@ -1,0 +1,97 @@
+#@Author Tobechi Onwenu
+#City Skyline Assignment 3.
+
+import turtle
+
+def draw_outline():
+    skyline.speed(-1)
+    skyline.penup()
+    skyline.goto(-490/2, -500/2)
+    skyline.pendown()
+    skyline.begin_fill()
+    skyline.color("black")
+    skyline.forward(490)
+    skyline.left(90)
+    skyline.forward(500)
+    skyline.left(90)
+    skyline.forward(490)
+    skyline.left(90)
+    skyline.forward(500)
+    skyline.left(90)
+    skyline.end_fill()
+    
+def draw_building(color,width,height):
+    skyline.color(color)
+    skyline.begin_fill()
+    skyline.forward(width)
+    skyline.left(90)
+    skyline.forward(height)
+    skyline.left(90)
+    skyline.forward(width)
+    skyline.left(90)
+    skyline.forward(height)
+    skyline.left(90)
+    skyline.end_fill()
+    skyline.fd(width)
+
+def draw_windows(x,y):
+    skyline.pu()
+    skyline.goto(x,y)
+    skyline.pd()
+    skyline.color('yellow')
+    skyline.begin_fill()
+    skyline.forward(10)
+    skyline.left(90)
+    skyline.forward(10)
+    skyline.left(90)
+    skyline.forward(10)
+    skyline.left(90)
+    skyline.forward(10)
+    skyline.left(90)
+    skyline.end_fill()
+    skyline.fd(10)
+
+def draw_skyline():
+    draw_outline()
+    draw_building('grey',60,150)
+    draw_building('grey',75,250)
+    draw_building('grey',105,450)
+    draw_building('grey',50,200)
+    draw_building('grey',80,400)
+    draw_building('grey',50,300)
+    draw_building('grey',70,150)
+    draw_windows(-170,-30)
+    draw_windows(-100,170)
+    draw_windows(-100,150)
+    draw_windows(-30,110)
+    draw_windows(60,120)
+    draw_windows(-50,-80)
+    draw_windows(100,-30)
+    
+def draw_star(x,y):
+    skyline.hideturtle()
+    skyline.pu()
+    skyline.goto(x,y)
+    skyline.pd()
+    skyline.color("white")
+    skyline.begin_fill()
+    skyline.rt(90)
+    skyline.fd(10)
+    skyline.rt(144)
+    skyline.fd(10)
+    skyline.rt(144)
+    skyline.fd(10)
+    skyline.rt(144)
+    skyline.fd(10)
+    skyline.rt(144)
+    skyline.fd(10)
+    skyline.end_fill()
+
+def main():
+    global skyline
+    skyline=turtle.Turtle()
+    screen=skyline.getscreen()
+    screen.onclick(draw_star)
+    draw_skyline()
+    
+main()
